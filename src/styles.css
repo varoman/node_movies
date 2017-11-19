@@ -1,1 +1,13 @@
-/* You can add global styles to this file, and also import other style files */
+.row {
+	margin-top: 15px;
+}
+
+.win {
+	background-color: green;
+	color: white;
+}
+
+.lose {
+	background-color: red;
+	color: white;
+}

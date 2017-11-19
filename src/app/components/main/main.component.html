@@ -1,0 +1,65 @@
+<div class="main">
+	<div class="row">
+		<form #mainForm="ngForm">
+	  		<div class="col-md-4">
+	    		<div class="input-group">
+	      			<span class="input-group-addon">
+	       				<input 	type="radio"
+	       						[(ngModel)]="input.winner"
+                     			[value]="0"
+	       					   	name="winner">
+	      			</span>
+	      			<input 	type="text"
+	      					[(ngModel)]="input.varoMovie"
+	      					name="varoMovie" 
+	      					placeholder="Varo's movies"
+	      					required 
+	      				  	class="form-control">
+	    		</div>
+	  		</div>
+	  		<div class="col-md-4">
+	    		<div class="input-group">
+	      			<span class="input-group-addon">
+	       				<input 	type="radio"
+	       						[(ngModel)]="input.winner"
+                     			[value]="1"
+	       					   	name="winner">
+	      			</span>
+	      			<input 	type="text"
+	      					[(ngModel)]="input.lusoMovie"
+	      					name="lusoMovie" 
+	      					placeholder="Lusine's movie"
+	      					required 
+	      					class="form-control">
+	    		</div>
+	  		</div>
+	  		<div class="col-md-4">
+	    		<div class="input-group">
+	       				<button class="btn btn-primary" (click)="submitForm()">Submit</button>
+	    		</div>
+	  		</div>
+  		</form>
+	</div>
+	<hr>
+	<table class="table">
+  		<thead class="thead-dark">
+		    <tr>
+		      <th scope="col">#</th>
+		      <th scope="col">Varo</th>
+		      <th scope="col">Lusine</th>
+		    </tr>
+  		</thead>
+  		<tbody>
+		    <tr *ngFor="let movie of movies; let index = index">
+		      <th scope="row">{{ index + 1 }}</th>
+		      <td [class]="setClass(movie, 'varo')">{{ movie.varo }}</td>
+		      <td [class]="setClass(movie, 'luso')">{{ movie.luso }}</td>
+		    </tr>
+		    <tr class="bg-info">
+		      <th scope="row">Total</th>
+		      <td>{{ varoWinsCount }}</td>
+		      <td>{{ lusoWincSount }}</td>
+		    </tr>
+  		</tbody>
+	</table>
+</div>
