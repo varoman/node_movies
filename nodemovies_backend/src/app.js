@@ -4,20 +4,19 @@ const express = require('express');
 const app = express();
 const db = require('./db');
 const cors = require('cors');
-var bodyParser = require('body-parser');
-
+const bodyParser = require('body-parser');
 
 app.use(cors());
 app.use(bodyParser.json());
 
-var server = app.listen(4201, function () {
+const server = app.listen(4201, function () {
 
-  var host = server.address().address
-  var port = server.address().port
+  const host = server.address().address;
+  const port = server.address().port;
 
-  console.log("Example app listening at http://%s:%s", host, port)
+  console.log("backend app listening at http://%s:%s", host, port)
 
-})
+});
 
 app.get('/getMovies', function (req, res) {
 	db.findDocuments().then(function (data) {
@@ -26,7 +25,7 @@ app.get('/getMovies', function (req, res) {
 });
 
 app.post('/addMovies', function (req, res) {
-	db.insertDocument(req.body)
+	db.insertDocument(req.body);
   res.end('inserted');
 });
 

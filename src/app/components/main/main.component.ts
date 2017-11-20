@@ -36,6 +36,7 @@ export class MainComponent implements OnInit {
   }
 
   submitForm() {
+    if (!this.mainForm.valid) return;
     const postData = {
       varo: this.input.varoMovie,
       luso: this.input.lusoMovie,
